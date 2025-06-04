@@ -16,7 +16,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.6%2B-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Security](https://img.shields.io/badge/security-AES%20256-red.svg)](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
-[![Platform](https://img.shields.io/badge/platform-cross--platform-lightgrey.svg)](https://github.com/hashom/passec)
+[![Platform](https://img.shields.io/badge/platform-cross--platform-lightgrey.svg)](https://github.com/iamomjoshi/passec)
 
 *Developed by **HASHOM** | Advanced Command-Line Security Tools*
 
@@ -114,11 +114,11 @@ Authentication:     HMAC-SHA256
 ### Recommended: Virtual Environment Setup
 
 ```bash
-git clone https://github.com/hashom/passec.git
+git clone https://github.com/iamomjoshi/passec.git
 cd passec
 python3 -m venv .venv
 source .venv/bin/activate
-python scripts/setup.py
+python setup.py
 ```
 
 ### Quick Installer
@@ -281,7 +281,7 @@ copies or substantial portions of the Software.
 
 * **Documentation**: `/docs` folder in repo
 * **Issues & Features**: GitHub Issues
-* **Security Reports**: [security@hashom.dev](mailto:security@hashom.dev)
+* **Security Reports**: [omjoshi1k@gmail.com](mailto:omjoshi1k@gmail.com)
 
 ### FAQ
 
@@ -297,6 +297,6 @@ copies or substantial portions of the Software.
 
 *Empowering secure identity management from the command line.*
 
-[⭐ Star on GitHub](https://github.com/hashom/passec) | [🐛 Report Bug](https://github.com/hashom/passec/issues)
+[⭐ Star on GitHub](https://github.com/iamomjoshi/passec) | [🐛 Report Bug](https://github.com/iamomjoshi/passec/issues)
 
 </div>
