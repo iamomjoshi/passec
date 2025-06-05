@@ -80,9 +80,9 @@ def print_banner():
 {Colors.BRIGHT_MAGENTA}██║     ██║  ██║███████║███████║███████╗╚██████╗{Colors.END}
 {Colors.MAGENTA}╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝{Colors.END}
 
-{Colors.BRIGHT_GREEN}🔐 Secure Password Generator and Manager{Colors.END}
-{Colors.BRIGHT_YELLOW}👨‍💻 Created by: {Colors.BRIGHT_CYAN}HASHOM{Colors.END} {Colors.BRIGHT_YELLOW}| Advanced CLI Security Tool{Colors.END}
-{Colors.GREEN}🚀 Version: 2.0 | Enhanced Security & User Experience{Colors.END}
+{Colors.BRIGHT_GREEN} Secure Password Generator and Manager{Colors.END}
+{Colors.BRIGHT_YELLOW} Created by: {Colors.BRIGHT_CYAN}HASHOM{Colors.END} {Colors.BRIGHT_YELLOW}| Advanced CLI Security Tool{Colors.END}
+{Colors.GREEN} Version: 2.0 | Enhanced Security & User Experience{Colors.END}
 {Colors.DIM}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{Colors.END}
 """
     print(banner)
@@ -90,22 +90,22 @@ def print_banner():
 
 def print_success(message: str):
     """Print success message with styling."""
-    print(f"{Colors.BRIGHT_GREEN}✅ {message}{Colors.END}")
+    print(f"{Colors.BRIGHT_GREEN} {message}{Colors.END}")
 
 
 def print_error(message: str):
     """Print error message with styling."""
-    print(f"{Colors.BRIGHT_RED}❌ {message}{Colors.END}")
+    print(f"{Colors.BRIGHT_RED} {message}{Colors.END}")
 
 
 def print_warning(message: str):
     """Print warning message with styling."""
-    print(f"{Colors.BRIGHT_YELLOW}⚠️  {message}{Colors.END}")
+    print(f"{Colors.BRIGHT_YELLOW}  {message}{Colors.END}")
 
 
 def print_info(message: str):
     """Print info message with styling."""
-    print(f"{Colors.BRIGHT_CYAN}ℹ️  {message}{Colors.END}")
+    print(f"{Colors.BRIGHT_CYAN}  {message}{Colors.END}")
 
 
 def print_section_header(title: str):
@@ -420,7 +420,7 @@ class PasswordVault:
         self.key = key
         self.vault_data = {}
         self.save_vault()
-        print_success("Vault created successfully! 🔐")
+        print_success("Vault created successfully! ")
     
     def unlock_vault(self, master_password: str) -> bool:
         """Unlock the vault with the master password."""
@@ -434,7 +434,7 @@ class PasswordVault:
         try:
             self.load_vault()
             self.last_activity_time = time.time()
-            print_success("Vault unlocked successfully! 🔓")
+            print_success("Vault unlocked successfully! ")
             return True
         except (InvalidToken, json.JSONDecodeError):
             print_error("Invalid master password or corrupted vault")
@@ -457,7 +457,7 @@ class PasswordVault:
         """Lock the vault for security."""
         self.key = None
         self.vault_data = {}
-        print_warning("Vault locked for security 🔒")
+        print_warning("Vault locked for security ")
     
     def save_vault(self) -> None:
         """Save the vault data to encrypted file."""
@@ -645,15 +645,15 @@ class PassecCLI:
         if self.vault.is_locked():
             if os.path.exists(self.vault.salt_file):
                 print_info("Vault is locked. Please enter your master password.")
-                master_password = getpass.getpass(f"{Colors.BRIGHT_CYAN}🔑 Master Password: {Colors.END}")
+                master_password = getpass.getpass(f"{Colors.BRIGHT_CYAN} Master Password: {Colors.END}")
                 return self.vault.unlock_vault(master_password)
             else:
                 print_info("No vault found. Let's create a new secure vault!")
                 print_warning("Choose a strong master password - you'll need it to access your vault.")
                 
                 while True:
-                    master_password = getpass.getpass(f"{Colors.BRIGHT_CYAN}🔑 Create Master Password: {Colors.END}")
-                    confirm_password = getpass.getpass(f"{Colors.BRIGHT_CYAN}🔑 Confirm Master Password: {Colors.END}")
+                    master_password = getpass.getpass(f"{Colors.BRIGHT_CYAN} Create Master Password: {Colors.END}")
+                    confirm_password = getpass.getpass(f"{Colors.BRIGHT_CYAN} Confirm Master Password: {Colors.END}")
                     
                     if master_password != confirm_password:
                         print_error("Passwords do not match! Please try again.")
@@ -710,12 +710,12 @@ class PassecCLI:
         print(f"{Colors.BRIGHT_WHITE}Estimated crack time: {Colors.CYAN}{analysis['crack_time']}{Colors.END}")
         
         if analysis['feedback']['warnings']:
-            print(f"\n{Colors.BRIGHT_YELLOW}⚠️  Warnings:{Colors.END}")
+            print(f"\n{Colors.BRIGHT_YELLOW}  Warnings:{Colors.END}")
             for warning in analysis['feedback']['warnings']:
                 print(f"   • {Colors.YELLOW}{warning}{Colors.END}")
         
         if analysis['feedback']['suggestions']:
-            print(f"\n{Colors.BRIGHT_BLUE}💡 Suggestions:{Colors.END}")
+            print(f"\n{Colors.BRIGHT_BLUE} Suggestions:{Colors.END}")
             for suggestion in analysis['feedback']['suggestions']:
                 print(f"   • {Colors.BLUE}{suggestion}{Colors.END}")
         
@@ -725,32 +725,32 @@ class PassecCLI:
         """Display credentials with beautiful formatting."""
         print_section_header(f"Credentials for {service}")
         
-        print(f"{Colors.BRIGHT_WHITE}🏷️  Service: {Colors.BRIGHT_CYAN}{service}{Colors.END}")
-        print(f"{Colors.BRIGHT_WHITE}👤 Username: {Colors.CYAN}{credentials['username']}{Colors.END}")
+        print(f"{Colors.BRIGHT_WHITE}  Service: {Colors.BRIGHT_CYAN}{service}{Colors.END}")
+        print(f"{Colors.BRIGHT_WHITE} Username: {Colors.CYAN}{credentials['username']}{Colors.END}")
         
         if show_password:
-            print(f"{Colors.BRIGHT_WHITE}🔑 Password: {Colors.BRIGHT_GREEN}{credentials['password']}{Colors.END}")
+            print(f"{Colors.BRIGHT_WHITE} Password: {Colors.BRIGHT_GREEN}{credentials['password']}{Colors.END}")
         else:
-            print(f"{Colors.BRIGHT_WHITE}🔑 Password: {Colors.DIM}{'*' * 12} (use --show to reveal){Colors.END}")
+            print(f"{Colors.BRIGHT_WHITE} Password: {Colors.DIM}{'*' * 12} (use --show to reveal){Colors.END}")
         
         if credentials.get('notes'):
-            print(f"{Colors.BRIGHT_WHITE}📝 Notes: {Colors.CYAN}{credentials['notes']}{Colors.END}")
+            print(f"{Colors.BRIGHT_WHITE} Notes: {Colors.CYAN}{credentials['notes']}{Colors.END}")
         
-        print(f"{Colors.BRIGHT_WHITE}📂 Category: {Colors.CYAN}{credentials.get('category', 'general')}{Colors.END}")
+        print(f"{Colors.BRIGHT_WHITE} Category: {Colors.CYAN}{credentials.get('category', 'general')}{Colors.END}")
         
         # Strength indicator
         strength_label = credentials.get('strength_label', 'Unknown')
         strength_score = credentials.get('strength_score', 0)
         _, color = self.vault.analyzer.get_strength_label_and_color(strength_score)
-        print(f"{Colors.BRIGHT_WHITE}💪 Strength: {color}{strength_label}{Colors.END}")
+        print(f"{Colors.BRIGHT_WHITE} Strength: {color}{strength_label}{Colors.END}")
         
-        print(f"{Colors.BRIGHT_WHITE}📅 Created: {Colors.CYAN}{credentials['created']}{Colors.END}")
-        print(f"{Colors.BRIGHT_WHITE}🔄 Last Modified: {Colors.CYAN}{credentials['last_modified']}{Colors.END}")
+        print(f"{Colors.BRIGHT_WHITE} Created: {Colors.CYAN}{credentials['created']}{Colors.END}")
+        print(f"{Colors.BRIGHT_WHITE} Last Modified: {Colors.CYAN}{credentials['last_modified']}{Colors.END}")
         
         if credentials.get('last_accessed'):
-            print(f"{Colors.BRIGHT_WHITE}👁️  Last Accessed: {Colors.CYAN}{credentials['last_accessed']}{Colors.END}")
+            print(f"{Colors.BRIGHT_WHITE}  Last Accessed: {Colors.CYAN}{credentials['last_accessed']}{Colors.END}")
         
-        print(f"{Colors.BRIGHT_WHITE}📊 Access Count: {Colors.CYAN}{credentials.get('access_count', 0)}{Colors.END}")
+        print(f"{Colors.BRIGHT_WHITE} Access Count: {Colors.CYAN}{credentials.get('access_count', 0)}{Colors.END}")
         print()
     
     def show_vault_statistics(self) -> None:
@@ -762,15 +762,15 @@ class PassecCLI:
         
         print_section_header("Vault Statistics Dashboard")
         
-        print(f"{Colors.BRIGHT_WHITE}📊 Total Entries: {Colors.BRIGHT_CYAN}{stats['total_entries']}{Colors.END}")
-        print(f"{Colors.BRIGHT_WHITE}⚠️  Weak Passwords: {Colors.BRIGHT_RED}{stats['weak_passwords']}{Colors.END}")
+        print(f"{Colors.BRIGHT_WHITE} Total Entries: {Colors.BRIGHT_CYAN}{stats['total_entries']}{Colors.END}")
+        print(f"{Colors.BRIGHT_WHITE}  Weak Passwords: {Colors.BRIGHT_RED}{stats['weak_passwords']}{Colors.END}")
         
         if stats['categories']:
-            print(f"\n{Colors.BRIGHT_MAGENTA}📂 Categories:{Colors.END}")
+            print(f"\n{Colors.BRIGHT_MAGENTA} Categories:{Colors.END}")
             for category, count in sorted(stats['categories'].items()):
                 print(f"   {Colors.CYAN}• {category}: {Colors.WHITE}{count}{Colors.END}")
         
-        print(f"\n{Colors.BRIGHT_MAGENTA}💪 Password Strength Distribution:{Colors.END}")
+        print(f"\n{Colors.BRIGHT_MAGENTA} Password Strength Distribution:{Colors.END}")
         strength_labels = ["Very Weak", "Weak", "Fair", "Good", "Strong"]
         colors = [Colors.BRIGHT_RED, Colors.RED, Colors.YELLOW, Colors.GREEN, Colors.BRIGHT_GREEN]
         
@@ -793,13 +793,13 @@ class PassecCLI:
         # Check for weak passwords
         weak_passwords = self.vault.get_weak_passwords()
         if weak_passwords:
-            print(f"{Colors.BRIGHT_RED}🚨 Weak Passwords Found ({len(weak_passwords)}):{Colors.END}")
+            print(f"{Colors.BRIGHT_RED} Weak Passwords Found ({len(weak_passwords)}):{Colors.END}")
             for service in weak_passwords:
                 creds = self.vault.get_credentials(service, update_access=False)
                 strength_label = creds.get('strength_label', 'Unknown')
                 print(f"   {Colors.RED}• {Colors.CYAN}{service} {Colors.RED}({strength_label}){Colors.END}")
         else:
-            print(f"{Colors.BRIGHT_GREEN}✅ No weak passwords found!{Colors.END}")
+            print(f"{Colors.BRIGHT_GREEN} No weak passwords found!{Colors.END}")
         
         # Check for duplicate passwords
         passwords = {}
@@ -812,14 +812,14 @@ class PassecCLI:
         
         duplicates = {pwd: services for pwd, services in passwords.items() if len(services) > 1}
         if duplicates:
-            print(f"\n{Colors.BRIGHT_YELLOW}🔄 Duplicate Passwords Found:{Colors.END}")
+            print(f"\n{Colors.BRIGHT_YELLOW} Duplicate Passwords Found:{Colors.END}")
             for password, services in duplicates.items():
                 print(f"   {Colors.YELLOW}• Used by: {Colors.CYAN}{', '.join(services)}{Colors.END}")
         else:
-            print(f"\n{Colors.BRIGHT_GREEN}✅ No duplicate passwords found!{Colors.END}")
+            print(f"\n{Colors.BRIGHT_GREEN} No duplicate passwords found!{Colors.END}")
         
         # Security recommendations
-        print(f"\n{Colors.BRIGHT_BLUE}💡 Security Recommendations:{Colors.END}")
+        print(f"\n{Colors.BRIGHT_BLUE} Security Recommendations:{Colors.END}")
         if weak_passwords:
             print(f"   {Colors.BLUE}• Update {len(weak_passwords)} weak passwords{Colors.END}")
         if duplicates:
@@ -840,15 +840,15 @@ class PassecCLI:
         while True:
             print(f"\n{Colors.BRIGHT_MAGENTA}{'='*50}{Colors.END}")
             print(f"{Colors.BRIGHT_WHITE}What would you like to do?{Colors.END}")
-            print(f"{Colors.CYAN}1. 🔐 Generate Password{Colors.END}")
-            print(f"{Colors.CYAN}2. 💾 Store Credentials{Colors.END}")
-            print(f"{Colors.CYAN}3. 🔍 Get Credentials{Colors.END}")
-            print(f"{Colors.CYAN}4. 📋 List All Services{Colors.END}")
-            print(f"{Colors.CYAN}5. 🔎 Search Credentials{Colors.END}")
-            print(f"{Colors.CYAN}6. 📊 View Statistics{Colors.END}")
-            print(f"{Colors.CYAN}7. 🔒 Security Audit{Colors.END}")
-            print(f"{Colors.CYAN}8. ❌ Delete Credentials{Colors.END}")
-            print(f"{Colors.CYAN}9. 🚪 Exit{Colors.END}")
+            print(f"{Colors.CYAN}1.  Generate Password{Colors.END}")
+            print(f"{Colors.CYAN}2.  Store Credentials{Colors.END}")
+            print(f"{Colors.CYAN}3.  Get Credentials{Colors.END}")
+            print(f"{Colors.CYAN}4.  List All Services{Colors.END}")
+            print(f"{Colors.CYAN}5.  Search Credentials{Colors.END}")
+            print(f"{Colors.CYAN}6.  View Statistics{Colors.END}")
+            print(f"{Colors.CYAN}7.  Security Audit{Colors.END}")
+            print(f"{Colors.CYAN}8.  Delete Credentials{Colors.END}")
+            print(f"{Colors.CYAN}9.  Exit{Colors.END}")
             
             try:
                 choice = input(f"\n{Colors.BRIGHT_YELLOW}Enter your choice (1-9): {Colors.END}").strip()
@@ -870,13 +870,13 @@ class PassecCLI:
                 elif choice == '8':
                     self._interactive_delete_credentials()
                 elif choice == '9':
-                    print_success("Thanks for using Passec! Stay secure! 🛡️")
+                    print_success("Thanks for using Passec! Stay secure! ")
                     break
                 else:
                     print_error("Invalid choice. Please enter a number between 1-9.")
                     
             except KeyboardInterrupt:
-                print(f"\n{Colors.BRIGHT_YELLOW}Goodbye! 👋{Colors.END}")
+                print(f"\n{Colors.BRIGHT_YELLOW}Goodbye! {Colors.END}")
                 break
             except Exception as e:
                 print_error(f"An error occurred: {e}")
@@ -1069,7 +1069,7 @@ class PassecCLI:
         elif args.generate and not (args.store or args.get):
             # Generate password without storing
             password = self.generate_password(args)
-            print(f"{Colors.BRIGHT_GREEN}🔐 Generated Password: {Colors.BRIGHT_CYAN}{password}{Colors.END}")
+            print(f"{Colors.BRIGHT_GREEN} Generated Password: {Colors.BRIGHT_CYAN}{password}{Colors.END}")
             
             if args.analyze:
                 self.analyze_password_strength(password)
@@ -1081,7 +1081,7 @@ class PassecCLI:
             
             if args.generate:
                 password = self.generate_password(args)
-                print(f"{Colors.BRIGHT_GREEN}🔐 Generated Password: {Colors.BRIGHT_CYAN}{password}{Colors.END}")
+                print(f"{Colors.BRIGHT_GREEN} Generated Password: {Colors.BRIGHT_CYAN}{password}{Colors.END}")
             else:
                 password = getpass.getpass(f"{Colors.BRIGHT_CYAN}🔑 Enter password for {args.service}: {Colors.END}")
             
@@ -1173,7 +1173,7 @@ if __name__ == "__main__":
         cli = PassecCLI()
         cli.run()
     except KeyboardInterrupt:
-        print(f"\n{Colors.BRIGHT_YELLOW}👋 Goodbye! Stay secure!{Colors.END}")
+        print(f"\n{Colors.BRIGHT_YELLOW} Goodbye! Stay secure!{Colors.END}")
         sys.exit(0)
     except Exception as e:
         print_error(f"An error occurred: {e}")

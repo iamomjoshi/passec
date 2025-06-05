@@ -36,28 +36,28 @@ def print_banner():
 {SetupColors.BRIGHT_MAGENTA}██║     ██║  ██║███████║███████║███████╗╚██████╗{SetupColors.END}
 {SetupColors.MAGENTA}╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝{SetupColors.END}
 
-{SetupColors.BRIGHT_GREEN}🔐 PASSEC SETUP & INSTALLATION{SetupColors.END}
-{SetupColors.BRIGHT_YELLOW}👨‍💻 Created by: {SetupColors.BRIGHT_CYAN}HASHOM{SetupColors.END} {SetupColors.BRIGHT_YELLOW}| Advanced CLI Security Tool{SetupColors.END}
-{SetupColors.GREEN}🚀 Setting up your secure password manager...{SetupColors.END}
+{SetupColors.BRIGHT_GREEN} PASSEC SETUP & INSTALLATION{SetupColors.END}
+{SetupColors.BRIGHT_YELLOW} Created by: {SetupColors.BRIGHT_CYAN}HASHOM{SetupColors.END} {SetupColors.BRIGHT_YELLOW}| Advanced CLI Security Tool{SetupColors.END}
+{SetupColors.GREEN} Setting up your secure password manager...{SetupColors.END}
 {SetupColors.WHITE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{SetupColors.END}
 """
     print(banner)
 
 def print_success(message: str):
     """Print success message."""
-    print(f"{SetupColors.BRIGHT_GREEN}✅ {message}{SetupColors.END}")
+    print(f"{SetupColors.BRIGHT_GREEN} {message}{SetupColors.END}")
 
 def print_error(message: str):
     """Print error message."""
-    print(f"{SetupColors.RED}❌ {message}{SetupColors.END}")
+    print(f"{SetupColors.RED} {message}{SetupColors.END}")
 
 def print_warning(message: str):
     """Print warning message."""
-    print(f"{SetupColors.YELLOW}⚠️  {message}{SetupColors.END}")
+    print(f"{SetupColors.YELLOW}  {message}{SetupColors.END}")
 
 def print_info(message: str):
     """Print info message."""
-    print(f"{SetupColors.CYAN}ℹ️  {message}{SetupColors.END}")
+    print(f"{SetupColors.CYAN}  {message}{SetupColors.END}")
 
 def print_step(step: str):
     """Print setup step."""
@@ -291,10 +291,10 @@ def run_initial_test():
 def show_completion_message():
     """Show setup completion message with usage instructions."""
     print(f"\n{SetupColors.BRIGHT_GREEN}{'='*60}{SetupColors.END}")
-    print(f"{SetupColors.BRIGHT_GREEN}🎉 PASSEC SETUP COMPLETED SUCCESSFULLY! 🎉{SetupColors.END}")
+    print(f"{SetupColors.BRIGHT_GREEN} PASSEC SETUP COMPLETED SUCCESSFULLY! 🎉{SetupColors.END}")
     print(f"{SetupColors.BRIGHT_GREEN}{'='*60}{SetupColors.END}")
     
-    print(f"\n{SetupColors.BRIGHT_CYAN}🚀 Quick Start Guide:{SetupColors.END}")
+    print(f"\n{SetupColors.BRIGHT_CYAN} Quick Start Guide:{SetupColors.END}")
     print(f"{SetupColors.CYAN}1. Interactive Mode (Recommended for beginners):{SetupColors.END}")
     print(f"   {SetupColors.WHITE}python passec.py --interactive{SetupColors.END}")
     
@@ -307,18 +307,18 @@ def show_completion_message():
     print(f"\n{SetupColors.CYAN}4. Get help:{SetupColors.END}")
     print(f"   {SetupColors.WHITE}python passec.py --help{SetupColors.END}")
     
-    print(f"\n{SetupColors.BRIGHT_YELLOW}📁 Files Created:{SetupColors.END}")
+    print(f"\n{SetupColors.BRIGHT_YELLOW} Files Created:{SetupColors.END}")
     print(f"   {SetupColors.YELLOW}• ~/.passec/config.json - Configuration file{SetupColors.END}")
     print(f"   {SetupColors.YELLOW}• ~/.local/bin/passec - Executable symlink{SetupColors.END}")
     print(f"   {SetupColors.YELLOW}• ~/.local/share/applications/passec.desktop - Desktop entry{SetupColors.END}")
     
-    print(f"\n{SetupColors.BRIGHT_MAGENTA}🔐 Security Features:{SetupColors.END}")
+    print(f"\n{SetupColors.BRIGHT_MAGENTA} Security Features:{SetupColors.END}")
     print(f"   {SetupColors.MAGENTA}• AES encryption with Fernet{SetupColors.END}")
     print(f"   {SetupColors.MAGENTA}• PBKDF2 key derivation (100,000 iterations){SetupColors.END}")
     print(f"   {SetupColors.MAGENTA}• Auto-lock after 5 minutes of inactivity{SetupColors.END}")
     print(f"   {SetupColors.MAGENTA}• Local storage only (no cloud sync){SetupColors.END}")
     
-    print(f"\n{SetupColors.BRIGHT_CYAN}👨‍💻 Created by: HASHOM{SetupColors.END}")
+    print(f"\n{SetupColors.BRIGHT_CYAN} Created by: HASHOM{SetupColors.END}")
     print(f"{SetupColors.CYAN}Advanced CLI Security Tools{SetupColors.END}")
     
     print(f"\n{SetupColors.GREEN}Happy password managing! Stay secure! 🛡️{SetupColors.END}")

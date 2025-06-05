@@ -38,24 +38,24 @@ def print_banner():
 {Colors.BRIGHT_MAGENTA}██║     ██║  ██║███████║███████║███████╗╚██████╗{Colors.END}
 {Colors.MAGENTA}╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝{Colors.END}
 
-{Colors.BRIGHT_GREEN}🔐 PASSEC QUICK INSTALLER{Colors.END}
-{Colors.BRIGHT_YELLOW}👨‍💻 Created by: {Colors.BRIGHT_CYAN}HASHOM{Colors.END} {Colors.BRIGHT_YELLOW}| Advanced CLI Security Tool{Colors.END}
-{Colors.GREEN}🚀 Quick installation for secure password management{Colors.END}
+{Colors.BRIGHT_GREEN} PASSEC QUICK INSTALLER{Colors.END}
+{Colors.BRIGHT_YELLOW} Created by: {Colors.BRIGHT_CYAN}HASHOM{Colors.END} {Colors.BRIGHT_YELLOW}| Advanced CLI Security Tool{Colors.END}
+{Colors.GREEN} Quick installation for secure password management{Colors.END}
 {Colors.WHITE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{Colors.END}
 """
     print(banner)
 
 def print_success(message: str):
     """Print success message."""
-    print(f"{Colors.BRIGHT_GREEN}✅ {message}{Colors.END}")
+    print(f"{Colors.BRIGHT_GREEN} {message}{Colors.END}")
 
 def print_error(message: str):
     """Print error message."""
-    print(f"{Colors.RED}❌ {message}{Colors.END}")
+    print(f"{Colors.RED} {message}{Colors.END}")
 
 def print_info(message: str):
     """Print info message."""
-    print(f"{Colors.CYAN}ℹ️  {message}{Colors.END}")
+    print(f"{Colors.CYAN}  {message}{Colors.END}")
 
 def install_cryptography():
     """Install cryptography package."""
@@ -165,7 +165,7 @@ def test_installation(passec_file: Path):
 
 def show_usage_instructions():
     """Show usage instructions."""
-    print(f"\n{Colors.BRIGHT_GREEN}🎉 INSTALLATION COMPLETE! 🎉{Colors.END}")
+    print(f"\n{Colors.BRIGHT_GREEN} INSTALLATION COMPLETE! {Colors.END}")
     print(f"\n{Colors.BRIGHT_CYAN}Quick Start:{Colors.END}")
     print(f"{Colors.CYAN}1. Interactive mode:{Colors.END}")
     print(f"   {Colors.WHITE}python passec.py --interactive{Colors.END}")
@@ -179,7 +179,7 @@ def show_usage_instructions():
     print(f"\n{Colors.CYAN}4. Get help:{Colors.END}")
     print(f"   {Colors.WHITE}python passec.py --help{Colors.END}")
     
-    print(f"\n{Colors.BRIGHT_YELLOW}Created by HASHOM - Stay secure! 🛡️{Colors.END}")
+    print(f"\n{Colors.BRIGHT_YELLOW}Created by HASHOM - Stay secure! {Colors.END}")
 
 def main():
     """Main installer function."""
